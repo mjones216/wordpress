@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<RunSettings>
-  <RunConfiguration>
-    <EnvironmentVariables>
-      <EnvironmentDetails__BaseUrl>http://localhost:8080/</EnvironmentDetails__BaseUrl>
-      <EnvironmentDetails__Username>mjones</EnvironmentDetails__Username>
-    </EnvironmentVariables>
-  </RunConfiguration>
-</RunSettings>

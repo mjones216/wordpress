@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <RunConfiguration>
+    <EnvironmentVariables>
+      <EnvironmentDetails__BaseUrl>https://ukw-lenus-test-diag-m.azurewebsites.net/</EnvironmentDetails__BaseUrl>
+      <EnvironmentDetails__AdminLoginEmail>maria.jones+autoadmin@lenushealth.com</EnvironmentDetails__AdminLoginEmail>
+    </EnvironmentVariables>
+  </RunConfiguration>
+</RunSettings>

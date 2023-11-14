@@ -10,7 +10,9 @@ namespace automation
     {
         public string BaseUrl { get; set; } = default!;
 
-        public string Username { get; set; } = default!;
+        public string PlaywrightTracesDir { get; set; } = "../../../PlaywrightTraces";
+
+        public string AdminLoginEmail { get; set; } = default!;
 
         public string LoginPassword { get; set; } = default!;
     }

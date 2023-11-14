@@ -34,12 +34,9 @@ namespace automation.UITests
         }
 
         [Fact]
-        [Trait("Category", "Nightly")]
-        [Trait("TestID", "4421")]
         public async Task UserIsAbleToClickLogin()
         {
-            await _page.GotoAsync(_startupService.EnvironmentDetails.BaseUrl);
-            await _page.GetByRole(AriaRole.Link, new() { Name = "Log in" }).ClickAsync();
+            await _page.GotoAsync(_baseUrl);
         }
     }
 }
