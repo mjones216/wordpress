@@ -44,6 +44,10 @@
               "target": "Package",
               "version": "[34.0.2, )"
             },
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.12.0, )"
+            },
             "Microsoft.Extensions.Configuration.EnvironmentVariables": {
               "target": "Package",
               "version": "[7.0.0, )"

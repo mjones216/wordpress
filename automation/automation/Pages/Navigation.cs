@@ -26,5 +26,12 @@ namespace automation.Pages
             await _page.WaitForLoadStateAsync();
             return _page;
         }
+
+        public async Task<IPage> ClickEditPage()
+        {
+            await _page.GetByRole(AriaRole.Link, new() { Name = "Edit Page" }).ClickAsync();
+            await _page.WaitForLoadStateAsync();
+            return _page;
+        }
     }
 }

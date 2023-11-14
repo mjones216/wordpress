@@ -2,6 +2,7 @@
 using Bogus;
 using Microsoft.Playwright;
 using Xunit;
+using FluentAssertions;
 
 namespace automation.UITests
 {
@@ -41,14 +42,32 @@ namespace automation.UITests
         }
 
         [Fact]
-        public async Task AbleToAddNewPage()
+        public async Task AbleToAddAndEditNewPage()
         {
-            var pageTitle = _faker.Random.AlphaNumeric(10);
-            var pageBlock = _faker.Random.AlphaNumeric(100);
+            var pageTitle = _faker.Random.Words(10);
+            var pageBlock = _faker.Random.Words(100);
+            var pageTitleUpdated = _faker.Random.Words(10);
+            var pageBlockUpdated = _faker.Random.Words(100);
 
             await _loginPage.Login(_baseUrl, _username, _password);
             await _navigation.ClickAddNewPage();
-            await _newPage.EnterNewPageDetails(pageTitle, pageBlock);
+            await Assertions.Expect(_newPage.PublishButton()).ToBeDisabledAsync();
+            await _newPage.EnterPageDetails(pageTitle, pageBlock);
+            await Assertions.Expect(_newPage.ViewPageNotice()).ToBeVisibleAsync();
+            await Assertions.Expect(_page.GetByText(pageTitle + " is now live.")).ToBeVisibleAsync();
+            var pageAddress = await _newPage.PageAddress()!.InputValueAsync();
+            await _newPage.ClickViewPageButton();
+            _page.Url.Should().Be(pageAddress);
+            await Assertions.Expect(_newPage.PublishedPageTitle(pageTitle)).ToBeVisibleAsync();
+            await Assertions.Expect(_page.GetByText(pageBlock)).ToBeVisibleAsync();
+            await _navigation.ClickEditPage();
+            await _newPage.UpdatePageDetails(pageTitleUpdated, pageBlockUpdated);
+            await Assertions.Expect(_newPage.ViewPageNotice()).ToBeVisibleAsync();
+            await _newPage.ClickViewPageLink();
+            await Assertions.Expect(_newPage.PublishedPageTitle(pageTitle)).Not.ToBeVisibleAsync();
+            await Assertions.Expect(_newPage.PublishedPageTitle(pageTitleUpdated)).ToBeVisibleAsync();
+            await Assertions.Expect(_page.GetByText(pageBlock)).ToBeVisibleAsync();
+            await Assertions.Expect(_page.GetByText(pageBlockUpdated)).ToBeVisibleAsync();
         }
     }
 }
