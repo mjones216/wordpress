@@ -2,8 +2,8 @@
 <RunSettings>
   <RunConfiguration>
     <EnvironmentVariables>
-      <EnvironmentDetails__BaseUrl>https://ukw-lenus-test-diag-m.azurewebsites.net/</EnvironmentDetails__BaseUrl>
-      <EnvironmentDetails__AdminLoginEmail>maria.jones+autoadmin@lenushealth.com</EnvironmentDetails__AdminLoginEmail>
+      <EnvironmentDetails__BaseUrl>http://localhost:8080/wp-login.php</EnvironmentDetails__BaseUrl>
+      <EnvironmentDetails__Username>mjones</EnvironmentDetails__Username>
     </EnvironmentVariables>
   </RunConfiguration>
 </RunSettings>
