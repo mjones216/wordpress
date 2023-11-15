@@ -13,6 +13,8 @@ namespace automation.Pages
         private readonly string _block = "Empty block; start writing or type forward slash to choose a block";
         private readonly string _publishButton = "Publish";
         private readonly string _viewPagelink = "View Page";
+        private readonly string _updateButton = "Update";
+        private readonly string _newPageAddress = "Page address";
         private readonly IPage _page;
 
         public NewPage(IPage page)
@@ -36,7 +38,7 @@ namespace automation.Pages
             await _page.FrameLocator("iframe[name=\"editor-canvas\"]").GetByLabel(_title).FillAsync(title);
             await _page.FrameLocator("iframe[name=\"editor-canvas\"]").GetByLabel("Add default block").ClickAsync();
             await _page.FrameLocator("iframe[name=\"editor-canvas\"]").GetByLabel(_block).FillAsync(block);
-            await _page.GetByRole(AriaRole.Button, new() { Name = "Update" }).ClickAsync();
+            await _page.GetByRole(AriaRole.Button, new() { Name = _updateButton }).ClickAsync();
             await _page.WaitForLoadStateAsync();
             return _page;
         }
@@ -67,7 +69,7 @@ namespace automation.Pages
 
         public ILocator? PageAddress()
         {
-            return _page.GetByLabel("Page address");
+            return _page.GetByLabel(_newPageAddress);
         }
 
         public ILocator? PublishedPageTitle(string title)

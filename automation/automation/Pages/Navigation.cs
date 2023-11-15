@@ -11,7 +11,7 @@ namespace automation.Pages
     {
         private readonly string _pagesLink = "Pages";
         private readonly string _addNewPage = "Add New";
-        private readonly string _loginButton = "Log In";
+        private readonly string _editPageLink = "Edit Page";
         private readonly IPage _page;
 
         public Navigation(IPage page)
@@ -29,7 +29,7 @@ namespace automation.Pages
 
         public async Task<IPage> ClickEditPage()
         {
-            await _page.GetByRole(AriaRole.Link, new() { Name = "Edit Page" }).ClickAsync();
+            await _page.GetByRole(AriaRole.Link, new() { Name = _editPageLink }).ClickAsync();
             await _page.WaitForLoadStateAsync();
             return _page;
         }
