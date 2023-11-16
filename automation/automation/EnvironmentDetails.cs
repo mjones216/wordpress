@@ -10,6 +10,8 @@ namespace automation
     {
         public string BaseUrl { get; set; } = default!;
 
+        public string AdminUrl { get; set; } = default!;
+
         public string Username { get; set; } = default!;
 
         public string LoginPassword { get; set; } = default!;

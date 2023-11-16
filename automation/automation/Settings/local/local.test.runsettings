@@ -3,7 +3,8 @@
   <RunConfiguration>
     <EnvironmentVariables>
       <EnvironmentDetails__BaseUrl>http://localhost:8080/wp-login.php</EnvironmentDetails__BaseUrl>
-      <EnvironmentDetails__Username>mjones</EnvironmentDetails__Username>
+		<EnvironmentDetails__AdminUrl>http://localhost:8080/wp-admin/</EnvironmentDetails__AdminUrl>
+	  <EnvironmentDetails__Username>mjones</EnvironmentDetails__Username>
     </EnvironmentVariables>
   </RunConfiguration>
 </RunSettings>
